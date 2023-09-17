@@ -8,6 +8,6 @@ export function Button(props: ButtonProps) {
     const { type, disabled, text } = props;
 
     return (
-        <button type={type} className="inline p-3 ml-2 bg-blue-700 hover:bg-black disabled:bg-blue-700 text-white rounded-xl " disabled={disabled}>{text}</button>
+        <button type={type} className="p-3 ml-2 bg-blue-700 hover:bg-black disabled:bg-blue-700 text-white rounded-xl " disabled={disabled}>{text}</button>
     );
 }
