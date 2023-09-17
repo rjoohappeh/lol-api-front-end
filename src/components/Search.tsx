@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getRankedStatsBySummonerName } from "../api/user-account/user-account-api";
+import { Button } from "./shared/Button";
 
 export function Search() {
     const [accountName, setAccountName] = useState<string>('');
@@ -24,7 +25,7 @@ export function Search() {
                 placeholder="Search for account by name" 
                 onChange={(event) => setAccountName(event.target.value)}
             />
-            <button type="submit" className="inline p-3 ml-2 bg-blue-700 hover:bg-black text-white rounded-xl" disabled={accountName.length === 0}>Search</button>
+            <Button type={"submit"} disabled={accountName.length === 0} text={"Search"}/>
         </form>
     )
 }
