@@ -4,11 +4,16 @@ import { getRankedStatsBySummonerName } from "../api/user-account/user-account-a
 export function Search() {
     const [accountName, setAccountName] = useState<string>('');
 
-    async function onSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
+    function onSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        await getRankedStatsBySummonerName(accountName);
-        
+        getRankedStatsBySummonerName(accountName)
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     }
     
     return (
@@ -19,7 +24,7 @@ export function Search() {
                 placeholder="Search for account by name" 
                 onChange={(event) => setAccountName(event.target.value)}
             />
-            <button type="submit" className="inline p-3 ml-2 bg-blue-700 text-white border-solid border-1 border-black rounded-xl" disabled={accountName.length === 0}>Search</button>
+            <button type="submit" className="inline p-3 ml-2 bg-blue-700 hover:bg-black text-white rounded-xl" disabled={accountName.length === 0}>Search</button>
         </form>
     )
 }
