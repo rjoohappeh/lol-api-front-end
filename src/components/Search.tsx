@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { getRankedStatsBySummonerName } from "../api/user-account/user-account-api";
 import { Button } from "./shared/Button";
+import { useNavigate } from "react-router-dom";
 
 export function Search() {
     const [accountName, setAccountName] = useState<string>('');
     const [ error, setError ] = useState<string>('');
+
+    const navigate = useNavigate();
 
     function onSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
         getRankedStatsBySummonerName(accountName)
             .then((data) => {
-                console.log(data);
+                navigate(`/summoner/${accountName}`, { state: data });
             })
             .catch((err) => {
                 setError(err);
