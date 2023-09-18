@@ -12,8 +12,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Navbar/>
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/summoner/*' element={<SummonerProfile />} />
