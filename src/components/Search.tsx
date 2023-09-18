@@ -21,7 +21,7 @@ export function Search() {
     return (
         <form className="search-bar-container w-2/5 justify-center" onSubmit={onSearchSubmit}>
             <input 
-                className="search w-4/5 p-3 border-solid border-2 border-blue-700 rounded-lg" 
+                className="transition search w-4/5 p-3 border-solid border-2 border-black focus-visible:border-blue-700 focus:outline-none rounded-lg" 
                 type="text" 
                 placeholder="Search for account by name" 
                 onChange={(event) => setAccountName(event.target.value)}
